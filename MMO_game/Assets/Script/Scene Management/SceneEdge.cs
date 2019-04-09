@@ -22,9 +22,9 @@ public class SceneEdge : MonoBehaviour
         else
         {
             ScenesManager.scenesManager.UnLoad(current.itemID);
-            Node temp = current;
-            current = neighbor;
-            neighbor = temp;
+            //Node temp = current;
+            //current = neighbor;
+            //neighbor = temp;
         }
     }
 }
