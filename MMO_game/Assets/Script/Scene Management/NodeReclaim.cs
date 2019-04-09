@@ -32,6 +32,10 @@ public class NodeReclaim : Interactable
 
     void UpdateUI()
     {
+        if (node.isReclaimed)
+        {
+            //do something
+        }
         slider = nodeReclaimUI.GetComponentInChildren<Slider>();
         progressText = slider.GetComponentInChildren<Text>();
         float progress = Mathf.Clamp01(node.progress / 100);
