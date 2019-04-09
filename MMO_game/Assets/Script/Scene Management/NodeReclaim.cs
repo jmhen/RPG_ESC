@@ -7,19 +7,26 @@ using UnityEngine.UI;
 public class NodeReclaim : Interactable
 {
     public Node node;
-    GameObject nodeReclaimUI;
+    static GameObject nodeReclaimUI;
+    static GameObject nodeInfo;
+
     Slider slider;
     Text progressText;
-    GameObject nodeInfo;
+    static bool gameStarted = true;
 
 
     void Start()
     {
-        nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
-        nodeInfo = GameObject.FindWithTag("NodeInfo");
+        if (gameStarted)
+        {
+            nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
+            nodeInfo = GameObject.FindWithTag("NodeInfo");
 
 
-        nodeReclaimUI.SetActive(false);
+            nodeReclaimUI.SetActive(false);
+            gameStarted = false;
+        }
+
     }
 
 

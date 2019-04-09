@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45059234, g: 0.5005673, b: 0.5750377, a: 1}
+  m_IndirectSpecularColor: {r: 0.45059252, g: 0.5005675, b: 0.5750377, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 661041162}
-  node: {fileID: 11400000, guid: b242651bcb0764302a9a94e0e3324d60, type: 2}
+  node: {fileID: 11400000, guid: e3b5085aa95254e3aa79737f070c90fa, type: 2}
 --- !u!65 &661041164
 BoxCollider:
   m_ObjectHideFlags: 0
