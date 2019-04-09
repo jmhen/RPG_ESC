@@ -17,9 +17,9 @@ public class ScenesManager : MonoBehaviour
         StartCoroutine(LoadYourAsyncScene(idx));
     }
 
-    public void UnLoad()
+    public void UnLoad(int idx)
     {
-
+        StartCoroutine(UnLoadYourAsyncScene(idx));
     }
 
     IEnumerator LoadYourAsyncScene(int idx)
