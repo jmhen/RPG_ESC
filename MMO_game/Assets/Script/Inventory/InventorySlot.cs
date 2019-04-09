@@ -41,5 +41,6 @@ public class InventorySlot : MonoBehaviour
         {
             item.Use();
         }
+        ClearSlot();
     }
 }

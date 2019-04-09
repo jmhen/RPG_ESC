@@ -36,11 +36,6 @@ public class PlayerController : MonoBehaviour
                 motor.MoveToPoint(hit.point);
                 //move player to waht we hit
             }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100)) // Do not put movementMask here
             {
                 //check if we hit an interatable
@@ -58,6 +53,7 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+
 
 
     }

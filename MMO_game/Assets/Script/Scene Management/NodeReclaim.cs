@@ -12,19 +12,19 @@ public class NodeReclaim : Interactable
 
     Slider slider;
     Text progressText;
-    static bool gameStarted = true;
+    static bool gameStarted = false;
 
 
     void Start()
     {
-        if (gameStarted)
+        if (!gameStarted)
         {
             nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
             nodeInfo = GameObject.FindWithTag("NodeInfo");
 
 
             nodeReclaimUI.SetActive(false);
-            gameStarted = false;
+            gameStarted = true;
         }
 
     }

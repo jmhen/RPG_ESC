@@ -5,9 +5,19 @@ using UnityEngine;
 public class Inventory : MonoBehaviour//,IItemContainer
 {
     public static Inventory instance;
-    [SerializeField] List<Item> items = new List<Item>(); //seperates data from UI, even though itemSlots can contain items by themselves
+    public List<Item> items = new List<Item>(); //seperates data from UI, even though itemSlots can contain items by themselves
     [SerializeField] Transform itemsParent;
     [SerializeField] ItemSlot[] itemSlots;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
+    public delegate void OnItemChangedCallBack();
+    public OnItemChangedCallBack onItemChangedCallBack;
+
 
     private void OnValidate()
     {
@@ -41,8 +51,8 @@ public class Inventory : MonoBehaviour//,IItemContainer
                 return false;
             }
             items.Add(item);
-            //if (onItemChangedCallBack != null)
-            //    onItemChangedCallBack.Invoke();
+            if (onItemChangedCallBack != null)
+                onItemChangedCallBack.Invoke();
 
         }
         return true;
@@ -51,8 +61,8 @@ public class Inventory : MonoBehaviour//,IItemContainer
     public bool Remove(Item item)
     {
         items.Remove(item);
-        //if (onItemChangedCallBack != null)
-        //    onItemChangedCallBack.Invoke();
+        if (onItemChangedCallBack != null)
+            onItemChangedCallBack.Invoke();
         return true;
     }
 

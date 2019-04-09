@@ -2,13 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScenesManager : MonoBehaviour
 {
+    static GameObject loaderPanel;
+    static Slider sceneLoader;
+    static Text progressText;
     public static ScenesManager scenesManager;
+    bool gameStarted = false;
     void Start()
     {
-        scenesManager = this;
+        if (!gameStarted)
+        {
+            loaderPanel = GameObject.FindWithTag("LoaderPanel");
+            sceneLoader = loaderPanel.GetComponentInChildren<Slider>();
+            progressText = sceneLoader.GetComponentInChildren<Text>();
+            scenesManager = this;
+            loaderPanel.SetActive(false);
+            gameStarted = true;
+        }
+
+        
     }
 
     // Update is called once per frame
@@ -28,10 +43,15 @@ public class ScenesManager : MonoBehaviour
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(idx);
 
         // Wait until the asynchronous scene fully loads
+        loaderPanel.SetActive(true);
         while (!asyncLoad.isDone)
         {
+            float progress = Mathf.Clamp01(asyncLoad.progress / .9f);
+            sceneLoader.value = progress;
+            progressText.text = progress * 100 + "%";
             yield return null;
         }
+        loaderPanel.SetActive(false);
     }
 
     IEnumerator UnLoadYourAsyncScene(int idx)
