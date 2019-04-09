@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 54213849}
   - component: {fileID: 54213848}
   m_Layer: 5
-  m_Name: Btn_bag
+  m_Name: Btn_inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,12 +431,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54213846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 76548859}
-  m_Father: {fileID: 1046643408}
+  m_Father: {fileID: 1785523613}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -484,12 +484,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 270783225}
-        m_MethodName: 
+      - m_Target: {fileID: 1046643409}
+        m_MethodName: TriggerInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -742,6 +742,7 @@ GameObject:
   - component: {fileID: 125910317}
   - component: {fileID: 125910319}
   - component: {fileID: 125910320}
+  - component: {fileID: 125910322}
   - component: {fileID: 125910321}
   m_Layer: 0
   m_Name: GameManager
@@ -821,6 +822,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d66d71e14662542989ea08a2869b097b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &125910322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125910316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a038486be0530473aa943ad4e7c3a9a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &147592681
@@ -1627,7 +1640,6 @@ GameObject:
   m_Component:
   - component: {fileID: 270783226}
   - component: {fileID: 270783228}
-  - component: {fileID: 270783227}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -1648,27 +1660,13 @@ RectTransform:
   m_Children:
   - {fileID: 748380765}
   m_Father: {fileID: 1046643408}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -242.2, y: -51.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &270783227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270783225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b1e83ac12ca54c5c82fca5901b5b887, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemsParent: {fileID: 0}
-  inventoryUI: {fileID: 0}
 --- !u!222 &270783228
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2675,7 +2673,7 @@ GameObject:
   - component: {fileID: 448969214}
   - component: {fileID: 448969213}
   m_Layer: 5
-  m_Name: Button
+  m_Name: btn(menu)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2688,12 +2686,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448969211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 635079028}
-  m_Father: {fileID: 1046643408}
+  m_Father: {fileID: 1785523613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2740,7 +2738,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 448969214}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 125910322}
+        m_MethodName: Load
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &448969214
@@ -3754,7 +3763,7 @@ RectTransform:
   m_Children:
   - {fileID: 796472596}
   m_Father: {fileID: 1046643408}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6206,8 +6215,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 448969212}
-  - {fileID: 54213847}
+  - {fileID: 1785523613}
   - {fileID: 2064085674}
   - {fileID: 270783226}
   - {fileID: 687056362}
@@ -10951,6 +10959,43 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1771993996}
   m_CullTransparentMesh: 0
+--- !u!1 &1785523612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785523613}
+  m_Layer: 5
+  m_Name: Basic UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1785523613
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785523612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 448969212}
+  - {fileID: 54213847}
+  m_Father: {fileID: 1046643408}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &1804522685 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 288068444416278599, guid: 0ce121b4cb4af46cc9169a38540edbc3,
@@ -12680,7 +12725,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1046643408}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -22,12 +22,10 @@ public class InventoryUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void TriggerInventory()
     {
-        if (Input.GetButtonDown("Inventory"))
-        {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-        }
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        
     }
 
 
