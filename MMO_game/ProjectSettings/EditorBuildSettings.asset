@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: da7d3a3e9f9884e6aa6a73024f273404
   - enabled: 1
+    path: Assets/Bearded Man Studios Inc/Scenes/MultiplayerMenu.unity
+    guid: a5b9e296c950dcc4d862eeda4ce5052a
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 93f3bc3a6fb0a6d42ac99d6f4d15642c
   - enabled: 1
