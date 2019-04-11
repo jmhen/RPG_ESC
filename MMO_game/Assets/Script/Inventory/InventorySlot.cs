@@ -43,4 +43,11 @@ public class InventorySlot : MonoBehaviour
         }
         ClearSlot();
     }
+
+    public void Contribute()
+    {
+        Map.instance.ContributeToNodeProgress();
+        //update inventory
+    }
+
 }

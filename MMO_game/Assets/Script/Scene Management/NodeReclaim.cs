@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class NodeReclaim : Interactable
 {
+    static Map map;
     public Node node;
     static GameObject nodeReclaimUI;
     static GameObject nodeInfo;
@@ -23,14 +24,18 @@ public class NodeReclaim : Interactable
             nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
             nodeInfo = GameObject.FindWithTag("NodeInfo");
             materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
-
+            map = Map.instance;
 
             nodeReclaimUI.SetActive(false);
             gameStarted = true;
         }
+        node.onProgressChangedCallBack += UpdateUI;
 
     }
-
+    private void OnLevelWasLoaded(int level)
+    {
+        map.SetCurrentNode(node.itemID);
+    }
 
     public override void Interact()
     {
