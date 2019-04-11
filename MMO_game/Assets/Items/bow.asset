@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f74795c2a3314cdb9cf2bd059f96520, type: 3}
   m_Name: bow
   m_EditorClassIdentifier: 
-  itemID: 0
+  ID: 0
   name: New Item
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
   isDefaultItem: 0
   equipSlot: 0
   mesh: {fileID: 13700000, guid: c73cecdecc95c24419cf03fa0f93abc6, type: 3}
   coveredMeshRegions: 
-  armorModifier: 0
   damageModifier: 0
+  armorModifier: 0
   magicDamageModifier: 0
   magicResistModifier: 0
   hpModifier: 0

@@ -16,11 +16,11 @@ MonoBehaviour:
   isReclaimed: 0
   progress: 10
   requiredMaterials:
-  - {fileID: 11400000, guid: cd6cbe18ff9ca8b4c8be6967459b04ec, type: 2}
-  - {fileID: 11400000, guid: 5d6d40d04f329b3429b5b7787d1175c8, type: 2}
-  - {fileID: 11400000, guid: 7c2d9838c2070da47b5fa43c3773bad8, type: 2}
-  - {fileID: 11400000, guid: 019f0d12a36305d43bb56265da2996e6, type: 2}
-  - {fileID: 11400000, guid: 8712d90a924df2244be3c0ce13a72cca, type: 2}
+  - {fileID: 11400000, guid: ffa973a1cb35a4203a54153f6f59656d, type: 2}
+  - {fileID: 11400000, guid: 2932aed042359104f9be61c2e1058050, type: 2}
+  - {fileID: 11400000, guid: 378a2c7f3c38bba4cbb69e64001af14d, type: 2}
+  - {fileID: 11400000, guid: cb23946c99d4645ee93fe71232a92a1b, type: 2}
+  - {fileID: 11400000, guid: a9a9eebb177d1410a8d5f2e71a88118e, type: 2}
   spawnableMaterials:
   - {fileID: 11400000, guid: 0428ddedff734c34cbdd407a5f1b6ee3, type: 2}
   - {fileID: 11400000, guid: 7bebeaeb8a14f63428bd657d57f52f75, type: 2}

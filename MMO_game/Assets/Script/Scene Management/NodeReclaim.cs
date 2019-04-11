@@ -9,6 +9,7 @@ public class NodeReclaim : Interactable
     public Node node;
     static GameObject nodeReclaimUI;
     static GameObject nodeInfo;
+    static InventorySlot[] materialSlots;
 
     Slider slider;
     Text progressText;
@@ -21,6 +22,7 @@ public class NodeReclaim : Interactable
         {
             nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
             nodeInfo = GameObject.FindWithTag("NodeInfo");
+            materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
 
 
             nodeReclaimUI.SetActive(false);
@@ -62,6 +64,17 @@ public class NodeReclaim : Interactable
         //    Debug.Log(text.GetComponent<Text>().transform.position);
 
         //}
+        for (int i = 0; i < node.requiredMaterials.Count; i++)
+        {
+            if (node.requiredMaterials[i] != null)
+            {
+                if (i < materialSlots.Length)
+                {
+                    materialSlots[i].AddItem(node.requiredMaterials[i]);
+                }
+            }
+
+        }
 
 
 
