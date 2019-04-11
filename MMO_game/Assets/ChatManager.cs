@@ -1,61 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChatSystem : MonoBehaviour
+public class ChatManager : MonoBehaviour
 {
     public string username;
-    public int maxMessages = 15;
+    public int maxMessage = 30;
+
     public GameObject chatPanel, textObject;
     public InputField chatBox;
-    public Color playerMessage, info, attackInfo;
+    public Color playerMessage, info;
 
     [SerializeField]
     List<Message> messageList = new List<Message>();
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (chatBox.text != "")
         {
-            if (Input.GetKeyDown(KeyCode.Return))
+            if(Input.GetKeyDown(KeyCode.Return))
             {
-                sendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
+                SendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
                 chatBox.text = "";
             }
         }
-
-        //To activate the input field
         else
         {
-            if (!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return)) {
+            if (!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return))
+            {
                 chatBox.ActivateInputField();
             }
         }
 
-
-        //To check if chat box is active
         if (!chatBox.isFocused)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                sendMessageToChat("You have pressed enter!", Message.MessageType.info);
+                SendMessageToChat("You pressed the space bar!", Message.MessageType.info);
                 Debug.Log("Space");
             }
         }
 
-
     }
 
-    public void sendMessageToChat(string text, Message.MessageType messageType)
+    public void SendMessageToChat(string text, Message.MessageType messageType)
     {
-        if (messageList.Count >= maxMessages)
+        if (messageList.Count >= maxMessage)
         {
             Destroy(messageList[0].textObject.gameObject);
             messageList.Remove(messageList[0]);
@@ -63,20 +60,18 @@ public class ChatSystem : MonoBehaviour
 
         Message newMessage = new Message();
         newMessage.text = text;
-
         GameObject newText = Instantiate(textObject, chatPanel.transform);
-
         newMessage.textObject = newText.GetComponent<Text>();
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
+        messageList.Add(newMessage);
 
-        messageList.Add(newMessage); 
     }
 
-    Color MessageTypeColor(Message.MessageType messageType)
+    Color MessageTypeColor(Message.MessageType messagetype)
     {
         Color color = info;
-        switch (messageType)
+        switch(messagetype)
         {
             case Message.MessageType.playerMessage:
                 color = playerMessage;
@@ -84,7 +79,6 @@ public class ChatSystem : MonoBehaviour
         }
         return color;
     }
-
 }
 
 [System.Serializable]
