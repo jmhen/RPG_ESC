@@ -64,7 +64,10 @@ public class EquipmentManager : MonoBehaviour
         //insert the item into the slot
         currentEquipments[slotIndex] = newItem;
         SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
-        newMesh.transform.parent = targetMesh.transform;
+        if (newMesh.transform != null)
+        {
+            newMesh.transform.parent = targetMesh.transform;
+        }
 
         //tell the new mesh to deform based on bones of target mesh
         newMesh.bones = targetMesh.bones;
