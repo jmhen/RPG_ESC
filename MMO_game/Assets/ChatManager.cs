@@ -9,7 +9,7 @@ public class ChatManager : MonoBehaviour
     public string username;
     public int maxMessage = 30;
 
-    public GameObject chatPanel, textObject;
+    public GameObject chatPanel, textObject, scrollView, inputField;
     public InputField chatBox;
     public Color playerMessage, info;
 
@@ -18,7 +18,19 @@ public class ChatManager : MonoBehaviour
 
     void Start()
     {
-        
+        inputField.SetActive(false);
+        Debug.Log("set chat panel unseen");
+        scrollView.SetActive(false);
+        chatPanel.SetActive(false);
+        textObject.SetActive(false);
+    }
+
+    public void TriggerChat()
+    {
+        inputField.SetActive(!inputField.activeSelf);
+        scrollView.SetActive(!scrollView.activeSelf);
+        chatPanel.SetActive(!chatPanel.activeSelf);
+        textObject.SetActive(!textObject.activeSelf);
     }
 
     void Update()

@@ -13,12 +13,11 @@ public class MainMenu : MonoBehaviour
         mainMenu = this;
     }
 
+
     public void PlayGame()
     {
-
         SceneManager.LoadScene("GameElements");
         SceneManager.LoadScene(1, LoadSceneMode.Additive);
-
     }
 
     // Update is called once per frame
@@ -29,3 +28,4 @@ public class MainMenu : MonoBehaviour
 
 
 }
+
