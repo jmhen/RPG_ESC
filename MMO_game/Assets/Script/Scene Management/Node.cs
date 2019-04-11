@@ -12,15 +12,12 @@ public class Node : ScriptableObject
     public List<Item> requiredMaterials;
     public List<Item> spawnableMaterials;
 
-    public delegate void OnProgressChangedCallBack();
-    public OnProgressChangedCallBack onProgressChangedCallBack;
+
 
     public void MakeProgress()
     {
         Debug.Log("New Progress to node");
         if(progress<100) progress += 1;
-        if (onProgressChangedCallBack != null)
-            onProgressChangedCallBack.Invoke();
     }
 
 

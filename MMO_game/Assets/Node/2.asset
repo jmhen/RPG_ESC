@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   isReclaimed: 0
-  progress: 10
+  progress: 6
   requiredMaterials:
   - {fileID: 11400000, guid: ffa973a1cb35a4203a54153f6f59656d, type: 2}
   - {fileID: 11400000, guid: 2932aed042359104f9be61c2e1058050, type: 2}

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     static MainMenu mainMenu;
+    static bool gameStarted = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -15,15 +16,25 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        if (!gameStarted)
+        {
+            SceneManager.LoadScene("GameElements");
+            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            gameStarted = true;
+        }
+        else
+        {
+            SceneManager.LoadScene(StaticStats.Scene);
+        }
 
-        SceneManager.LoadScene("GameElements");
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+
 
     }
 
     // Update is called once per frame
     public void Quit()
-    {
+    {   
+        //TODO: save user stats
         Application.Quit();
     }
 

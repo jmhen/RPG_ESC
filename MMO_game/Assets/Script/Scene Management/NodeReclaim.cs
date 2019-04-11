@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using System;
 
 public class NodeReclaim : Interactable
 {
     static Map map;
-    public Node node;
+    Node node;
     static GameObject nodeReclaimUI;
     static GameObject nodeInfo;
     static InventorySlot[] materialSlots;
@@ -29,13 +30,12 @@ public class NodeReclaim : Interactable
             nodeReclaimUI.SetActive(false);
             gameStarted = true;
         }
-        node.onProgressChangedCallBack += UpdateUI;
+        map.onProgressChangedCallBack += UpdateUI;
+        //SceneManager.activeSceneChanged += OnActiveSceneChanged;
 
     }
-    private void OnLevelWasLoaded(int level)
-    {
-        map.SetCurrentNode(node.itemID);
-    }
+
+
 
     public override void Interact()
     {
@@ -46,6 +46,7 @@ public class NodeReclaim : Interactable
 
     void UpdateUI()
     {
+        node = map.getCurrentNode();
         if (node.isReclaimed)
         {
             //do something
@@ -55,20 +56,20 @@ public class NodeReclaim : Interactable
         float progress = Mathf.Clamp01(node.progress / 100);
         slider.value = progress;
         progressText.text = progress * 100f + "%";
-        //for (int i = 0; i < node.spawnableMaterials.Count; i++)
-        //{
-        //    Debug.Log("Adding Item info");
 
-        //    GameObject obj = new GameObject();
-        //    GameObject text = Instantiate(obj, new Vector3(0, 0, 0), Quaternion.identity);
-        //    text.AddComponent<Text>();
-        //    text.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 30);
-        //    text.transform.SetParent(nodeInfo.transform, false);
-        //    text.GetComponent<Text>().text = node.spawnableMaterials[i].name;
-        //    Debug.Log(text.GetComponent<Text>().text);
-        //    Debug.Log(text.GetComponent<Text>().transform.position);
+        string materialInfo = "";
+        for (int i = 0; i < node.spawnableMaterials.Count; i++)
+        {
+            string materialname = node.spawnableMaterials[i].name + "\n\n";
+            materialInfo += materialname;
+            Debug.Log(materialInfo);
+        }
 
-        //}
+        Text infoText = nodeInfo.GetComponentInChildren<Text>();
+        infoText.text = materialInfo;
+
+
+
         for (int i = 0; i < node.requiredMaterials.Count; i++)
         {
             if (node.requiredMaterials[i] != null)

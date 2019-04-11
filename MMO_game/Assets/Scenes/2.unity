@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1497,7 +1497,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 661041162}
-  node: {fileID: 11400000, guid: e3b5085aa95254e3aa79737f070c90fa, type: 2}
 --- !u!65 &661041164
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4513,8 +4512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e79f52613cfd4cd19d8859a315fba89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current: {fileID: 0}
-  neighbor: {fileID: 0}
 --- !u!65 &2058080647
 BoxCollider:
   m_ObjectHideFlags: 0
