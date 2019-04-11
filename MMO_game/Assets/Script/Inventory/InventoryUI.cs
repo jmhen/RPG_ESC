@@ -25,7 +25,6 @@ public class InventoryUI : MonoBehaviour
     public void TriggerInventory()
     {
         inventoryUI.SetActive(!inventoryUI.activeSelf);
-        
     }
 
 
@@ -39,10 +38,13 @@ public class InventoryUI : MonoBehaviour
             if (i < inventory.items.Count)
             {
                 slots[i].AddItem(inventory.items[i]);
+                Debug.Log("Why Duplicate");
             }
             else
             {
                 slots[i].ClearSlot();
+                Debug.Log("Why Duplicate 2");
+
             }
         }
     }
