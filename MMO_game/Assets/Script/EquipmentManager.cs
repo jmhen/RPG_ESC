@@ -33,6 +33,7 @@ public class EquipmentManager : MonoBehaviour
         int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipments = new Equipment[numSlots];
         currentMeshes = new SkinnedMeshRenderer[numSlots];
+        Debug.Log("EquipDefualtItems");
         EquipDefaultItems();
  
 

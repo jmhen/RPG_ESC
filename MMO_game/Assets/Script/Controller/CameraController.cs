@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour
     //public float maxZoom = 15f;
     public float pitch = 1f;
     public float yawSpeed = 100f;
+    Transform mainCamera;
 
 
     private float currentZoom = 5f;
@@ -21,6 +22,7 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         offset.Set(0f, -1f, -1.2f);
+        mainCamera = Camera.main.transform;
     }
     // Update is called once per frame 
     void Update()
@@ -33,8 +35,8 @@ public class CameraController : MonoBehaviour
     // LateUpdate is rightafter Update
     void LateUpdate()
     {
-        transform.position = target.position - offset * currentZoom;
-        transform.LookAt(target.position + Vector3.up * pitch);
-        transform.RotateAround(target.position, Vector3.up,currentYaw);
+        mainCamera.position = target.position - offset * currentZoom;
+        mainCamera.LookAt(target.position + Vector3.up * pitch);
+        mainCamera.RotateAround(target.position, Vector3.up,currentYaw);
     }
 }
