@@ -7,32 +7,35 @@ public class ChatSystem : MonoBehaviour
 {
     public string username;
     public int maxMessages = 15;
-    public GameObject chatPanel, textObject;
+    public GameObject chatPanel, textObject, scrollView, inputField, sendButton;
     public InputField chatBox;
-    public Color playerMessage, info, attackInfo;
+    public Color playerMessage, info;
+    public Button sendMessageButton;
 
     [SerializeField]
     List<Message> messageList = new List<Message>();
     // Start is called before the first frame update
     void Start()
     {
-        
+        scrollView.SetActive(false);
+        chatPanel.SetActive(false);
+        textObject.SetActive(false);
+        inputField.SetActive(false);
+        sendButton.SetActive(false);
+        sendMessageButton.onClick.AddListener(delegate {
+            if (!Input.GetKeyDown(KeyCode.Space))
+            {
+                sendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
+                chatBox.text = "";
+            }
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (chatBox.text != "")
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                sendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
-                chatBox.text = "";
-            }
-        }
-
         //To activate the input field
-        else
+        if (chatBox.text == "") 
         {
             if (!chatBox.isFocused && Input.GetKeyDown(KeyCode.Return)) {
                 chatBox.ActivateInputField();
@@ -51,6 +54,15 @@ public class ChatSystem : MonoBehaviour
         }
 
 
+    }
+
+    public void ToggleChat()
+    {
+        scrollView.SetActive(!scrollView.activeSelf);
+        chatPanel.SetActive(!chatPanel.activeSelf);
+        textObject.SetActive(!textObject.activeSelf);
+        inputField.SetActive(!inputField.activeSelf);
+        sendButton.SetActive(!sendButton.activeSelf);
     }
 
     public void sendMessageToChat(string text, Message.MessageType messageType)
