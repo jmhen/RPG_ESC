@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Networking;
 
-public class CharactorAnimator : MonoBehaviour
+public class CharactorAnimator : NetworkBehaviour
 {
     const float locomotionAnimationSmoothTime = .1f;
     Animator animator;
@@ -11,6 +12,11 @@ public class CharactorAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>(); //on graphic object(child of player object)
     }

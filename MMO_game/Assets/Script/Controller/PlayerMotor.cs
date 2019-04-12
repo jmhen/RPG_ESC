@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class PlayerMotor : MonoBehaviour
+public class PlayerMotor : NetworkBehaviour
 {
     Transform target;    // Target to follow
     NavMeshAgent agent;  // Reference to our agent
@@ -13,6 +13,11 @@ public class PlayerMotor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
         agent = GetComponent<NavMeshAgent>();
     }
 

@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CameraController : MonoBehaviour
+using UnityEngine.Networking;
+public class CameraController : NetworkBehaviour
 {
 
     public Transform target;
@@ -21,6 +21,11 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
         offset.Set(0f, -1f, -1.2f);
         mainCamera = Camera.main.transform;
     }

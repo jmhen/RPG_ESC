@@ -1,9 +1,9 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
-
+using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerMotor))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public LayerMask movementMask;
     public Interactable focus;
@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isLocalPlayer)
+        {
+            Destroy(this);
+            return;
+        }
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
         
