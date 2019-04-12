@@ -12,6 +12,7 @@ public class ChatManager : MonoBehaviour
     public GameObject chatPanel, textObject, scrollView, inputField;
     public InputField chatBox;
     public Color playerMessage, info;
+    public Button sendButton;
 
     [SerializeField]
     List<Message> messageList = new List<Message>();
@@ -23,6 +24,12 @@ public class ChatManager : MonoBehaviour
         scrollView.SetActive(false);
         chatPanel.SetActive(false);
         textObject.SetActive(false);
+        sendButton.onClick.AddListener(delegate
+        {
+            SendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
+            chatBox.text = "";
+        });
+
     }
 
     public void TriggerChat()
@@ -37,11 +44,11 @@ public class ChatManager : MonoBehaviour
     {
         if (chatBox.text != "")
         {
-            if(Input.GetKeyDown(KeyCode.Return))
-            {
-                SendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
-                chatBox.text = "";
-            }
+            //if(sendButton.onClick.AddListener())
+            //{
+             //   SendMessageToChat(username + ": " + chatBox.text, Message.MessageType.playerMessage);
+              //  chatBox.text = "";
+           // }
         }
         else
         {
@@ -77,7 +84,6 @@ public class ChatManager : MonoBehaviour
         newMessage.textObject.text = newMessage.text;
         newMessage.textObject.color = MessageTypeColor(messageType);
         messageList.Add(newMessage);
-
     }
 
     Color MessageTypeColor(Message.MessageType messagetype)
