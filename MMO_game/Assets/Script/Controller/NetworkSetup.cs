@@ -13,6 +13,8 @@ public class NetworkSetup : NetworkBehaviour
             ren.enabled = false;
         }
         GetComponent<NetworkAnimator>().SetParameterAutoSend(0, true);
+        Debug.Log(GetComponent<NetworkAnimator>().GetParameterAutoSend(0));
+
     }
 
     public override void OnStartClient()

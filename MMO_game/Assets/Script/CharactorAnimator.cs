@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Networking;
 
-public class CharactorAnimator : NetworkBehaviour
+public class CharactorAnimator : MonoBehaviour
 {
     const float locomotionAnimationSmoothTime = .1f;
     Animator animator;
@@ -12,13 +12,13 @@ public class CharactorAnimator : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!isLocalPlayer)
-        {
-            Destroy(this);
-            return;
-        }
+        //if (!isLocalPlayer)
+        //{
+        //    Destroy(this);
+        //    return;
+        //}
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>(); //on graphic object(child of player object)
+        animator = GetComponent<Animator>(); //on graphic object(child of player object)
     }
 
     // Update is called once per frame
