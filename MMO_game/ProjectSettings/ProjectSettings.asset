@@ -698,6 +698,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 0
     UNet: 1
   luminIcon:
     m_Name: 
@@ -718,10 +719,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: a12ea823-c0f2-4786-87a4-1ce006550d99
+  cloudProjectId: 8952bfba-cf3d-42ac-9315-3820acd5011d
   framebufferDepthMemorylessMode: 0
-  projectName: MMO_game (4)
-  organizationId: derrickmyo
+  projectName: MMO_game
+  organizationId: jmhen2017
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
