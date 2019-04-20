@@ -11,25 +11,37 @@ public class Spawner : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(!isLocalPlayer)
-        { return; }
-        timeLeft = currentSpawned * 10;
+        if(!isServer)
+        {
+            Debug.Log("not Server");
+            Destroy(this);
+            return;
+        }
+        timeLeft = currentSpawned * 0.03f;
     }
 
     // Update is called once per frame
+
     void Update()
     {
         timeLeft -= Time.deltaTime;
         if (timeLeft < 0)
         {
-            foreach (GameObject obj in objectsToSpawn)
-            {
-                GameObject sp = Instantiate(obj);
-                NetworkServer.Spawn(sp);
-                Debug.Log("new item spawned!\n");
-            }
-           
-            timeLeft = currentSpawned * 0.5f;
+            Debug.Log("Spawning\n");
+            Spawn();
         }
+    }
+
+    void Spawn()
+    {
+        foreach (GameObject obj in objectsToSpawn)
+        {
+            GameObject sp = Instantiate(obj);
+            NetworkServer.Spawn(sp);
+            Debug.Log(sp.GetComponent<NetworkIdentity>().observers);
+
+        }
+
+        timeLeft = currentSpawned * 0.5f;
     }
 }

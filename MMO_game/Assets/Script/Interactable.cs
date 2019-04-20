@@ -1,19 +1,16 @@
 ﻿
 using UnityEngine;
-
-public class Interactable : MonoBehaviour
+using UnityEngine.Networking;
+public class Interactable : NetworkBehaviour
 {
 
 
     public float radius = 3f;
     public Transform interactionTransform;
 
-
     bool isFocus = false;
     bool hasInteracted = false;
     Transform player;
-
-
 
 
 

@@ -17,8 +17,18 @@ public class PlayerController : NetworkBehaviour
             Destroy(this);
             return;
         }
+        if (isServer)
+        {
+            gameObject.name = "Server";
+        }
+        else
+        {
+            gameObject.name = "Local";
+        }
+
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
+
 
     }
 
