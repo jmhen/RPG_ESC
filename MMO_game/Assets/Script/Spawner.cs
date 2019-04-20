@@ -7,6 +7,7 @@ public class Spawner : NetworkBehaviour
 {
     public GameObject[] objectsToSpawn;
     public int currentSpawned;
+    public Transform[] spawnPoints;
     float timeLeft;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,12 @@ public class Spawner : NetworkBehaviour
     {
         foreach (GameObject obj in objectsToSpawn)
         {
-            GameObject sp = Instantiate(obj);
+
+            int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+            // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+
+            GameObject sp = Instantiate(obj, spawnPoints[spawnPointIndex]);
             NetworkServer.Spawn(sp);
             Debug.Log(sp.GetComponent<NetworkIdentity>().observers);
 

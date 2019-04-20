@@ -1002,13 +1002,13 @@ MonoBehaviour:
   m_OfflineScene: 
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 1472833514564985195, guid: ecca9a364908c4202aae465bc6150409, type: 3}
+  - {fileID: 284720803336249990, guid: ecca9a364908c4202aae465bc6150409, type: 3}
   - {fileID: 6767644920333779993, guid: 9d00f8b1bbc5a4b48806b491bf16b109, type: 3}
-  - {fileID: 3787466621551342019, guid: 8fe17a1b1698c4369bd90911bf8ae865, type: 3}
-  - {fileID: 352347854555524215, guid: 420d3927c5131407fa6d646d9721bcca, type: 3}
-  - {fileID: 5265131640023911914, guid: ead58665ce1c0420db0aaeaab56aa1bd, type: 3}
+  - {fileID: 206888183773289924, guid: 8fe17a1b1698c4369bd90911bf8ae865, type: 3}
+  - {fileID: 7064361599064651987, guid: 420d3927c5131407fa6d646d9721bcca, type: 3}
+  - {fileID: 4251794419448376403, guid: ead58665ce1c0420db0aaeaab56aa1bd, type: 3}
   - {fileID: 5379637674464329906, guid: 2ba05db2005d24f98baabd6c0efcc2ad, type: 3}
-  - {fileID: 7331636038991003969, guid: 463bfb28eaaea42d9b59d14f7b17adec, type: 3}
+  - {fileID: 6154770983020001183, guid: 463bfb28eaaea42d9b59d14f7b17adec, type: 3}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
