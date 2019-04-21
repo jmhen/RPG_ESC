@@ -15,6 +15,8 @@ MonoBehaviour:
   itemID: 2
   isReclaimed: 0
   progress: 6
+  healthLevel: 100
+  location: {x: 351.0655, y: -3.327111, z: 153.3074}
   requiredMaterials:
   - {fileID: 11400000, guid: ffa973a1cb35a4203a54153f6f59656d, type: 2}
   - {fileID: 11400000, guid: 2932aed042359104f9be61c2e1058050, type: 2}

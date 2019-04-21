@@ -47,5 +47,13 @@ public class Map : MonoBehaviour
         return currentNode;
     }
 
+    public void Teleport(int NodeID)
+    {
+        Vector3 newLocation = nodeList[NodeID].location;
+        Debug.Log("new location: " + newLocation);
+        PlayerManager.instance.player.transform.position = newLocation;
+        Debug.Log("player location: " + PlayerManager.instance.player.transform.position);
+
+    }
 
 }

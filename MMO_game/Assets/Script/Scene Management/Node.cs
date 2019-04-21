@@ -9,6 +9,8 @@ public class Node : ScriptableObject
     public int itemID;
     public bool isReclaimed;
     public float progress;
+    public float healthLevel;
+    public Vector3 location;
     public List<Item> requiredMaterials;
     public List<Item> spawnableMaterials;
 

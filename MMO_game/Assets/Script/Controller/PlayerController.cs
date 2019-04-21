@@ -42,31 +42,40 @@ public class PlayerController : NetworkBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100, movementMask))
+            // Check if the mouse was clicked over a UI element
+            if (EventSystem.current.IsPointerOverGameObject())
             {
-                //Debug.Log("We hit " + hit.collider.name +" "+hit.point);
-                RemoveFocus();
-                motor.MoveToPoint(hit.point);
-                //move player to waht we hit
+                Debug.Log("Clicked on the UI");
             }
-            if (Physics.Raycast(ray, out hit, 100)) // Do not put movementMask here
+            else
             {
-                //check if we hit an interatable
-                Interactable interactable = hit.collider.GetComponent<Interactable>();
-                //if yes, set it as our focus
-                if (interactable != null)
+                Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, 100, movementMask))
                 {
-                    SetFocus(interactable);
-                    //Debug.Log("We hit Interactable" + hit.collider.name + " " + hit.point);
+                    //Debug.Log("We hit " + hit.collider.name +" "+hit.point);
+                    RemoveFocus();
+                    motor.MoveToPoint(hit.point);
+                    //move player to waht we hit
                 }
-                else
+                if (Physics.Raycast(ray, out hit, 100)) // Do not put movementMask here
                 {
-                    //Debug.Log("Interactable not detected");
-                }
+                    //check if we hit an interatable
+                    Interactable interactable = hit.collider.GetComponent<Interactable>();
+                    //if yes, set it as our focus
+                    if (interactable != null)
+                    {
+                        SetFocus(interactable);
+                        //Debug.Log("We hit Interactable" + hit.collider.name + " " + hit.point);
+                    }
+                    else
+                    {
+                        //Debug.Log("Interactable not detected");
+                    }
 
+                }
             }
+
         }
 
 
