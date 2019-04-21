@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
     public List<Node> nodeList;
     static Node currentNode;
     public GameObject mapUI;
+ 
     // Start is called before the first frame update
     private void Awake()
     {
@@ -30,8 +31,13 @@ public class Map : MonoBehaviour
     public void SetCurrentNode(int nodeID)
     {
         Debug.Log("Setting node... ");
-        currentNode = nodeList[nodeID];
-        Debug.Log("curent node: "+currentNode.itemID);
+        if (nodeList[nodeID] != null)
+        {
+            currentNode = nodeList[nodeID];
+            Debug.Log("curent node: " + currentNode.itemID);
+    
+        }
+
     }
 
     public void ContributeToNodeProgress()
@@ -49,11 +55,16 @@ public class Map : MonoBehaviour
 
     public void Teleport(int NodeID)
     {
+
         Vector3 newLocation = nodeList[NodeID].location;
-        Debug.Log("new location: " + newLocation);
-        PlayerManager.instance.player.transform.position = newLocation;
-        Debug.Log("player location: " + PlayerManager.instance.player.transform.position);
+        Debug.Log("Teleporint to new location: " + newLocation + ".....");
+        GameObject player = PlayerManager.instance.player;
+        player.GetComponent<PlayerMotor>().Teleport(newLocation);
+        mapUI.SetActive(false);
+
 
     }
+
+     
 
 }

@@ -14,7 +14,7 @@ public class NodeReclaim : Interactable
     static InventorySlot[] materialSlots;
 
     Slider slider;
-    Text progressText;
+    Text progressText,nodeNumberText;
     static bool gameStarted = false;
 
 
@@ -51,11 +51,24 @@ public class NodeReclaim : Interactable
         {
             //do something
         }
+
+        //finding elements
         slider = nodeReclaimUI.GetComponentInChildren<Slider>();
         progressText = slider.GetComponentInChildren<Text>();
+        Text[] texts = nodeReclaimUI.GetComponentsInChildren<Text>();
+        foreach (Text t in texts)
+        {
+            if (t.name.Equals("nodeNumber"))
+            {
+                nodeNumberText = t;
+            }
+        }
+
+        //update elements
         float progress = Mathf.Clamp01(node.progress / 100);
         slider.value = progress;
         progressText.text = progress * 100f + "%";
+        nodeNumberText.text = node.itemID.ToString();
 
         string materialInfo = "";
         for (int i = 0; i < node.spawnableMaterials.Count; i++)
@@ -69,7 +82,7 @@ public class NodeReclaim : Interactable
         infoText.text = materialInfo;
 
 
-
+        //TODO: need to set the materials for all nodes!
         for (int i = 0; i < node.requiredMaterials.Count; i++)
         {
             if (node.requiredMaterials[i] != null)

@@ -24,4 +24,6 @@ public class NodeStations : MonoBehaviour
             Map.instance.SetCurrentNode(0);
         }
     }
+
+
 }

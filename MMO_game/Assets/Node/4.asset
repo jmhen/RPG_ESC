@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafbda1bd5a294183bfea8c34ce313ba, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 4
   isReclaimed: 0
   progress: 0
   healthLevel: 100
-  location: {x: 157.5009, y: -3.327111, z: -3.327111}
+  location: {x: 157.5009, y: -3.327111, z: 304.5671}
   requiredMaterials: []
   spawnableMaterials: []
