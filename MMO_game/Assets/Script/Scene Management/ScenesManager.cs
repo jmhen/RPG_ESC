@@ -45,7 +45,7 @@ public class ScenesManager : MonoBehaviour
     IEnumerator LoadYourAsyncScene(int idx)
     {
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(idx,LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(idx);
 
         // Wait until the asynchronous scene fully loads
         loaderPanel.SetActive(true);
@@ -56,8 +56,6 @@ public class ScenesManager : MonoBehaviour
             progressText.text = progress * 100 + "%";
             yield return null;
         }
-        Scene newScene = SceneManager.GetSceneByBuildIndex(idx);
-        SceneManager.SetActiveScene(newScene);
         loaderPanel.SetActive(false);
 
 

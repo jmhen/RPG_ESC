@@ -63,7 +63,7 @@ public class PlayerController : NetworkBehaviour
                 }
                 else
                 {
-                    Debug.Log("Interactable not detected");
+                    //Debug.Log("Interactable not detected");
                 }
 
             }

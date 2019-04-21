@@ -22,8 +22,8 @@ public class NodeReclaim : Interactable
     {
         if (!gameStarted)
         {
-            nodeReclaimUI = GameObject.FindWithTag("NodeReclaimUI");
-            nodeInfo = GameObject.FindWithTag("NodeInfo");
+            nodeReclaimUI = GameObject.Find("NodeReclaim");
+            nodeInfo = GameObject.Find("NodeInfo");
             materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
             map = Map.instance;
 
@@ -46,7 +46,7 @@ public class NodeReclaim : Interactable
 
     void UpdateUI()
     {
-        node = map.getCurrentNode();
+        node = map.GetCurrentNode();
         if (node.isReclaimed)
         {
             //do something

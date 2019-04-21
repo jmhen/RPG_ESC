@@ -18,8 +18,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!gameStarted)
         {
-            SceneManager.LoadScene("GameElements");
-            SceneManager.LoadScene(1, LoadSceneMode.Additive);
+            SceneManager.LoadScene(1);
             gameStarted = true;
         }
         else

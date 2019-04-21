@@ -44,8 +44,7 @@ public class Spawner : NetworkBehaviour
 
             GameObject sp = Instantiate(obj, spawnPoints[spawnPointIndex]);
             NetworkServer.Spawn(sp);
-            Debug.Log(sp.GetComponent<NetworkIdentity>().observers);
-
+            currentSpawned += objectsToSpawn.Length;
         }
 
         timeLeft = currentSpawned * 0.5f;

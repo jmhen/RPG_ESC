@@ -15,8 +15,6 @@ public class Map : MonoBehaviour
         instance = this;
     }
 
-    public delegate void OnNodeChangedCallBack();
-    public OnNodeChangedCallBack onNodeChangedCallBack;
 
     public delegate void OnProgressChangedCallBack();
     public OnProgressChangedCallBack onProgressChangedCallBack;
@@ -25,29 +23,15 @@ public class Map : MonoBehaviour
     {
         mapUI.SetActive(false);
         SetCurrentNode(1);
-        SceneManager.activeSceneChanged += OnActiveSceneChanged;
     }
 
-    private void OnActiveSceneChanged(Scene arg0, Scene arg1)
-    {
-        Debug.Log("Setting currentNode");
-        SetCurrentNode(SceneManager.GetActiveScene().buildIndex);
-        Debug.Log("Node Setting finished!");
-    }
 
-    public void SetCurrentNode(int sceneIdx)
-    {
-        int nodeIdx = sceneIdx - 1;
-        if (nodeIdx >= 0 && nodeIdx < nodeList.Count)
-        {
-            currentNode = nodeList[nodeIdx];
-            Debug.Log("curent node: "+currentNode.itemID);
-            if (onNodeChangedCallBack != null)
-            {
-                onNodeChangedCallBack.Invoke();
-            }
-        }
 
+    public void SetCurrentNode(int nodeID)
+    {
+        Debug.Log("Setting node... ");
+        currentNode = nodeList[nodeID];
+        Debug.Log("curent node: "+currentNode.itemID);
     }
 
     public void ContributeToNodeProgress()
@@ -58,24 +42,10 @@ public class Map : MonoBehaviour
             onProgressChangedCallBack.Invoke();
     }
 
-    public int getPreviousNodeIdx()
+    public Node GetCurrentNode()
     {
-        return currentNode.itemID-1;
+        return currentNode;
     }
 
-    public int getNextNodeIdx()
-    {
-        return currentNode.itemID+1;
-    }
 
-    public int getCurrentNodeIdx()
-    {
-        return currentNode.itemID;
-    }
-
-    public Node getCurrentNode()
-    {
-        Debug.Log("currentNode"+nodeList[currentNode.itemID-1].itemID);
-        return nodeList[currentNode.itemID - 1];
-    }
 }
