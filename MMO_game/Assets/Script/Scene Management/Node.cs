@@ -8,8 +8,8 @@ public class Node : ScriptableObject
 {
     public int itemID;
     public bool isReclaimed;
-    public float progress;
-    public float healthLevel;
+    float progress = 0;
+    public float healthLevel = 100;
     public Vector3 location;
     public List<Item> requiredMaterials;
     public List<Item> spawnableMaterials;
@@ -19,8 +19,18 @@ public class Node : ScriptableObject
     public void MakeProgress()
     {
         Debug.Log("New Progress to node");
-        if(progress<100) progress += 1;
+        if(progress<100) progress += 0.5f;
     }
+    public void SetProgress(float newProgress)
+    {
+        progress = newProgress;
+
+    }
+    public float GetProgress()
+    {
+        return progress;
+    }
+
 
 
 }

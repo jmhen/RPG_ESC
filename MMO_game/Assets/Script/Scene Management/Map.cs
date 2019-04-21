@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
-public class Map : MonoBehaviour
+public class Map : NetworkBehaviour
 {
     public static Map instance;
     public List<Node> nodeList;
@@ -17,8 +18,7 @@ public class Map : MonoBehaviour
     }
 
 
-    public delegate void OnProgressChangedCallBack();
-    public OnProgressChangedCallBack onProgressChangedCallBack;
+
 
     void Start()
     {
@@ -43,10 +43,12 @@ public class Map : MonoBehaviour
     public void ContributeToNodeProgress()
     {
         Debug.Log("contributed ");
-        currentNode.MakeProgress();
-        if (onProgressChangedCallBack != null)
-            onProgressChangedCallBack.Invoke();
+  
+        PlayerManager.instance.player.GetComponent<PlayerCommands>().NodeMakeProgressForAll(currentNode.itemID);
+
+       
     }
+
 
     public Node GetCurrentNode()
     {

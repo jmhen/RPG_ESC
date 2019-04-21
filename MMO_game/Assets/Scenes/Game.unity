@@ -6087,6 +6087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635433949}
   - component: {fileID: 635433951}
+  - component: {fileID: 635433953}
   - component: {fileID: 635433950}
   - component: {fileID: 635433952}
   m_Layer: 5
@@ -6177,6 +6178,18 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
+--- !u!114 &635433953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635433948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31a96d9355a9435881d4e9bf641da76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &635979589
 GameObject:
   m_ObjectHideFlags: 0
@@ -7322,7 +7335,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 883207997}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
