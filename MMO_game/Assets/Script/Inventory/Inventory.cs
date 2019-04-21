@@ -5,9 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour//,IItemContainer
 {
     public static Inventory instance;
-    public List<Item> items = new List<Item>(); //seperates data from UI, even though itemSlots can contain items by themselves
-    [SerializeField] Transform itemsParent;
-    [SerializeField] ItemSlot[] itemSlots;
+    public List<Item> items; //seperates data from UI, even though itemSlots can contain items by themselves
 
     private void Awake()
     {
@@ -19,27 +17,6 @@ public class Inventory : MonoBehaviour//,IItemContainer
     public OnItemChangedCallBack onItemChangedCallBack;
 
 
-    private void OnValidate()
-    {
-        if(itemsParent != null)
-        {
-            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>();
-        }
-        RefreshUI();
-    }
-
-    private void RefreshUI() //updates inventory when change occurs
-    {
-        int i = 0;
-        for(; i < items.Count && i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = items[i]; //assigns all items to an item slot
-        }
-        for(; i < itemSlots.Length; i++)
-        {
-            itemSlots[i].Item = null; //remaining slots set to null because no more items are present
-        }
-    }
 
     public bool Add(Item item)
     { 

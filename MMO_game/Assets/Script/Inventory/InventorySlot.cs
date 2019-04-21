@@ -5,10 +5,14 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
-
     Item item;
+    Inventory inventory;
 
 
+    public void Start()
+    {
+        inventory = Inventory.instance;
+    }
     public void AddItem(Item newItem)
     {
         item = newItem;
@@ -46,8 +50,20 @@ public class InventorySlot : MonoBehaviour
 
     public void Contribute()
     {
-        Map.instance.ContributeToNodeProgress();
-        //update inventory
+        Debug.Log(item.name);
+        Debug.Log(inventory.items.Count);
+        if (inventory.ContainsItem(item))
+        {
+            Map.instance.ContributeToNodeProgress();
+            //update inventory
+            inventory.Remove(item);
+
+        }
+        else
+        {
+            Toast.toast.ShowToast("Item Not Found In Inventory", 1);
+        }
+
     }
 
 }
