@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
 
-//[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
     [SerializeField] int ID;
@@ -20,6 +19,6 @@ public class Item : ScriptableObject
 
     public virtual void RemoveFromInventory() //removed from Equipment and added to superclass. All items should have some way of being removed, maybe give key items some sort of flag if needed
     {
-        //Inventory.instance.Remove(this);
+        Inventory.instance.Remove(this);
     }
 }

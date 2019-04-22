@@ -9,6 +9,11 @@ public class Inventory : MonoBehaviour//,IItemContainer
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("More than 1 instance of Inventory found");
+            return;
+        }
         instance = this;
     }
 
@@ -38,6 +43,7 @@ public class Inventory : MonoBehaviour//,IItemContainer
     public bool Remove(Item item)
     {
         items.Remove(item);
+        Debug.Log(onItemChangedCallBack);
         if (onItemChangedCallBack != null)
             onItemChangedCallBack.Invoke();
         return true;

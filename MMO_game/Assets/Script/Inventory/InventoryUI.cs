@@ -7,7 +7,7 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsParent;
     public GameObject inventoryUI;
     public List<Item> items;
-    Inventory inventory;
+    static Inventory inventory;
  
 
     InventorySlot[] slots;
@@ -23,12 +23,13 @@ public class InventoryUI : MonoBehaviour
         StartCoroutine(LoadInventoryItems());
 
     }
-    
+
 
     // Update is called once per frame
     public void TriggerInventory()
     {
         inventoryUI.SetActive(!inventoryUI.activeSelf);
+        Debug.Log("INVENTORY UI: onItemChangedCallBack: " + inventory.onItemChangedCallBack);
 
     }
     IEnumerator LoadInventoryItems()
@@ -41,6 +42,7 @@ public class InventoryUI : MonoBehaviour
             inventory.Add(items[i]);
             yield return null;
         }
+        Debug.Log("INVENTORY UI: onItemChangedCallBack: " + inventory.onItemChangedCallBack);
 
     }
 

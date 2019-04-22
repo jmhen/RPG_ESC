@@ -6,11 +6,21 @@ using UnityEngine.Networking;
 public static class StaticStats
 {
    
-    private static int mp, hp, scene;
+    private static int mp, hp, scene=1, gameStatus=0;
     private static Vector3 position;
     public static string playerName;
 
-
+    public static int GameStatus
+    {
+        get
+        {
+            return gameStatus;
+        }
+        set
+        {
+            gameStatus = value;
+        }
+    }
     public static int Mp
     {
         get
