@@ -22,8 +22,15 @@ public class PlayerCommands : NetworkBehaviour
 
     public void DestroyOnServer(GameObject spawnedObj)
     {
-        Debug.Log("asking server to destroy obj");
-        CmdDestroyObject(spawnedObj);
+        if (isServer)
+        {
+            NetworkServer.Destroy(spawnedObj);
+        }
+        else {
+            Debug.Log("asking server to destroy obj");
+            CmdDestroyObject(spawnedObj);
+        }
+
 
     }
     public void NodeMakeProgressForAll(int nodeID)

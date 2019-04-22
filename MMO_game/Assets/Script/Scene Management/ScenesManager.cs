@@ -15,7 +15,7 @@ public class ScenesManager : MonoBehaviour
     {
         if (!gameStarted)
         {
-            loaderPanel = GameObject.FindWithTag("LoaderPanel");
+            loaderPanel = UIManager.UI.loaderUI;
             sceneLoader = loaderPanel.GetComponentInChildren<Slider>();
             progressText = sceneLoader.GetComponentInChildren<Text>();
             scenesManager = this;

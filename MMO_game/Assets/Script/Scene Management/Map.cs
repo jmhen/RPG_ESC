@@ -22,7 +22,6 @@ public class Map : NetworkBehaviour
 
     void Start()
     {
-        mapUI.SetActive(false);
         SetCurrentNode(1);
     }
 

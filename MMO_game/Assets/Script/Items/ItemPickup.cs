@@ -26,15 +26,7 @@ public class ItemPickup : Interactable
             GameObject commandar = PlayerManager.instance.player;
             if (commandar != null)
             {
-                Debug.Log(commandar.name);
-                if (isServer)
-                {
-                    NetworkServer.Destroy(gameObject);
-
-                }else{
-
-                    commandar.GetComponent<PlayerCommands>().DestroyOnServer(gameObject);
-                }
+               commandar.GetComponent<PlayerCommands>().DestroyOnServer(gameObject);
             }
 
         }
