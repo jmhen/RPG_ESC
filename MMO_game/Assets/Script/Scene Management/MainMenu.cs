@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -25,16 +26,18 @@ public class MainMenu : MonoBehaviour
         {
             SceneManager.LoadScene(StaticStats.Scene);
         }
-
-
-
     }
+
 
     // Update is called once per frame
     public void Quit()
-    {   
+    {
         //TODO: save user stats
+        //DB.setAll();
+        DB.setHp();
         Application.Quit();
+        Debug.Log("App is quit.");
+        Debug.Log(StaticStats.Hp);
     }
 
 
