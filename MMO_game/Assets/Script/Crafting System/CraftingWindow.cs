@@ -11,27 +11,25 @@ public class CraftingWindow : MonoBehaviour
 
     [Header("Public Variables")]
     Inventory inventory;
-    public List<CraftingRecipe> CraftingRecipes;
+    public List<CraftingRecipe> craftingRecipes;
 
     private void Init()
     {
+        Debug.Log("CRAFTING WINDOW:init");
         recipeUIParent.GetComponentsInChildren<CraftingRecipeUI>(includeInactive: true, result: craftingRecipeUIs);
         UpdateCraftingRecipes();
     }
 
-    private void OnValidate()
-    {
-        Init();
-    }
-
     private void Start()
     {
+        Debug.Log("CRAFTING WINDOW:Recipe Count = "+craftingRecipes.Count);
         Init();
     }
 
     public void UpdateCraftingRecipes()
     {
-        for (int i = 0; i < CraftingRecipes.Count; i++)
+
+        for (int i = 0; i < craftingRecipes.Count; i++)
         {
             if (craftingRecipeUIs.Count == i)
             {
@@ -42,11 +40,10 @@ public class CraftingWindow : MonoBehaviour
                 craftingRecipeUIs[i] = Instantiate(recipeUIPrefab, recipeUIParent, false);
             }
 
-
-            craftingRecipeUIs[i].CraftingRecipe = CraftingRecipes[i];
+            craftingRecipeUIs[i].CraftingRecipe = craftingRecipes[i];
         }
 
-        for (int i = CraftingRecipes.Count; i < craftingRecipeUIs.Count; i++)
+        for (int i = craftingRecipes.Count; i < craftingRecipeUIs.Count; i++)
         {
             craftingRecipeUIs[i].CraftingRecipe = null;
         }

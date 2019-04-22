@@ -15,19 +15,18 @@ public class CraftingRecipeUI : MonoBehaviour
     [SerializeField] RectTransform arrowParent;
     [SerializeField] ItemSlot[] itemSlots;
 
-    private void OnValidate()
-    {
-        itemSlots = GetComponentsInChildren<ItemSlot>(includeInactive: true);
-    }
 
     void Start()
     {
+        itemSlots = GetComponentsInChildren<ItemSlot>(includeInactive: true);
+        Debug.Log("CRAFTING WINDOW: slot count = " + itemSlots.Length);
         inventory = Inventory.instance; // init of inventory
         Debug.Log(inventory);
     }
 
-    public void OnCraftButtonClick()
+    public void StartCrafting()
     {
+        Debug.Log("Let's Craft!");
         craftingRecipe.Craft(inventory);
     }
 
@@ -39,18 +38,20 @@ public class CraftingRecipeUI : MonoBehaviour
 
         if(craftingRecipe != null) 
         {
+            Debug.Log("New Recipe!");
             int slotIndex = 0;
             slotIndex = SetSlots(craftingRecipe.materials, slotIndex);  
             arrowParent.SetSiblingIndex(slotIndex);
             slotIndex = SetSlots(craftingRecipe.results, slotIndex);
             for (int i = slotIndex; i < itemSlots.Length; i++)
             {
-                itemSlots[i].gameObject.SetActive(false);
+                //itemSlots[i].gameObject.SetActive(false);
             }
             gameObject.SetActive(true); ;
         }
         else
         {
+            Debug.Log("Hide View!");
             gameObject.SetActive(false);
         }
     }
@@ -63,7 +64,7 @@ public class CraftingRecipeUI : MonoBehaviour
             ItemSlot itemSlot = itemSlots[slotIndex];
             Text amountText = itemSlots[slotIndex].GetComponentInChildren<Text>();
 
-            itemSlot.Item = itemAmount.item;
+            itemSlot.AddItem(itemAmount.item);
             //need to change child of slot which is a text box into itemAmount.amount
             //itemSlot.Amount = itemAmount.amount; items not stackable anymore
             amountText.text = itemAmount.amount.ToString(); 

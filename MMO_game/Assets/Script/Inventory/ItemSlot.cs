@@ -5,31 +5,24 @@ using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour
 {
-    [SerializeField] Image image;
-    private Item _item;
-    public Item Item
+    public Image icon;
+    Item item;
+
+    public void AddItem(Item newItem)
     {
-        get { return _item; }
-        set
-        {
-            _item = value;
-            if (_item == null)
-            {
-                image.enabled = false;
-            }
-            else
-            {
-                image.sprite = _item.icon;
-                image.enabled = true;
-            }
-        }
+        item = newItem;
+        Debug.Log("Slot filled with " + item.name);
+
+        icon.sprite = item.icon;
+        icon.enabled = true;
     }
 
-    private void OnValidate()
+    public void ClearSlot()
     {
-        if(image == null)
-        {
-            image = GetComponent<Image>();
-        }
+        item = null;
+
+        icon.sprite = null;
+        icon.enabled = false;
+
     }
 }

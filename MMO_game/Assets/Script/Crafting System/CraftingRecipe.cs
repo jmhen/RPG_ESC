@@ -32,7 +32,8 @@ public class CraftingRecipe : ScriptableObject
     public void Craft(Inventory inventory)
     {
         if (CanCraft(inventory)) {
-            foreach(ItemAmount itemAmount in materials)
+
+            foreach (ItemAmount itemAmount in materials)
             {
                 for(int i = 0; i < itemAmount.amount; i++)
                 {
@@ -40,10 +41,7 @@ public class CraftingRecipe : ScriptableObject
                 }
             }
             Debug.Log("items removed");
-        }
 
-        if (CanCraft(inventory))
-        {
             foreach (ItemAmount itemAmount in results)
             {
                 for (int i = 0; i < itemAmount.amount; i++)
@@ -52,6 +50,12 @@ public class CraftingRecipe : ScriptableObject
                 }
             }
             Debug.Log("items added");
+            Toast.toast.ShowToast("New crafted item added to your inventory!", 2);
         }
+        else
+        {
+            Toast.toast.ShowToast("Insufficient materials", 2);
+        }
+
     }
 }

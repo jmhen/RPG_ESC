@@ -21,7 +21,6 @@ public class NodeReclaimUI : MonoBehaviour
         nodeInfo = GameObject.Find("NodeInfo");
         materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
         map = Map.instance;
-        Debug.Log("CHECKING MAP INSTANCE:"+map.GetCurrentNode());
 
 
     
