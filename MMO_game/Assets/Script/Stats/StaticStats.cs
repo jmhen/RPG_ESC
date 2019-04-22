@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public static class StaticStats
 {
    
     private static int mp, hp, scene;
     private static Vector3 position;
+    public static string playerName;
+
 
     public static int Mp
     {

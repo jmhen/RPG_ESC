@@ -22,8 +22,6 @@ public class NodeReclaimUI : MonoBehaviour
         materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
         map = Map.instance;
 
-
-    
     }
 
 
