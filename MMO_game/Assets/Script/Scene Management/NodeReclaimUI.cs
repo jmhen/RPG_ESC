@@ -13,7 +13,6 @@ public class NodeReclaimUI : MonoBehaviour
 
     Slider slider;
     Text progressText, nodeNumberText;
-    static bool gameStarted = false;
 
 
     void Start()
@@ -22,6 +21,7 @@ public class NodeReclaimUI : MonoBehaviour
         nodeInfo = GameObject.Find("NodeInfo");
         materialSlots = nodeReclaimUI.GetComponentsInChildren<InventorySlot>();
         map = Map.instance;
+        Debug.Log("CHECKING MAP INSTANCE:"+map.GetCurrentNode());
 
     }
 

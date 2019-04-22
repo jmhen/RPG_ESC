@@ -10,7 +10,7 @@ public class NodeReclaim : Interactable
     public GameObject nodeUI;
     private void Start()
     {
-        nodeUI = GameObject.Find("NodeReclaim");
+        nodeUI = UIManager.UI.nodeReclaimUI;
         nodeUI.SetActive(false);
     }
     public override void Interact()

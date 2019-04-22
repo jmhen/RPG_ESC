@@ -7,7 +7,7 @@ using UnityEngine;
 public struct ItemAmount
 {
     public Item item;
-    [Range(1, 20)]
+    [Range(1, 30)]
     public int amount;
 }
 
@@ -17,11 +17,11 @@ public class CraftingRecipe : ScriptableObject
     public List<ItemAmount> materials;
     public List<ItemAmount> results;
     
-    public bool CanCraft(IItemContainer itemContainer)
+    public bool CanCraft(Inventory inventory)
     {
         foreach(ItemAmount itemAmount in materials)
         {
-            if(itemContainer.ItemCount(itemAmount.item) < itemAmount.amount)
+            if(inventory.ItemCount(itemAmount.item) < itemAmount.amount)
             {
                 return false;
             }
@@ -29,27 +29,29 @@ public class CraftingRecipe : ScriptableObject
         return true;
     }
     
-    public void Craft(IItemContainer itemContainer)
+    public void Craft(Inventory inventory)
     {
-        if (CanCraft(itemContainer)) {
+        if (CanCraft(inventory)) {
             foreach(ItemAmount itemAmount in materials)
             {
                 for(int i = 0; i < itemAmount.amount; i++)
                 {
-                    itemContainer.Remove(itemAmount.item);
+                    inventory.Remove(itemAmount.item);
                 }
             }
+            Debug.Log("items removed");
         }
 
-        if (CanCraft(itemContainer))
+        if (CanCraft(inventory))
         {
             foreach (ItemAmount itemAmount in results)
             {
                 for (int i = 0; i < itemAmount.amount; i++)
                 {
-                    itemContainer.Add(itemAmount.item);
+                    inventory.Add(itemAmount.item);
                 }
             }
+            Debug.Log("items added");
         }
     }
 }

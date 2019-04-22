@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.Networking;
-public class Interactable : NetworkBehaviour
+public class Interactable : MonoBehaviour
 {
 
 
