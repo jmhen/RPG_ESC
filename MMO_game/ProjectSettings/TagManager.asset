@@ -8,6 +8,7 @@ TagManager:
   - NodeReclaimUI
   - NodeInfo
   - LoaderPanel
+  - NodeStation
   layers:
   - Default
   - TransparentFX

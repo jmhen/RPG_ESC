@@ -8,6 +8,7 @@ public class Item : ScriptableObject
     new public string name = "New Item";
     public Sprite icon = null;
     public bool isDefaultItem = false;
+    public bool itemCap;
 
 
     public virtual void Use() //maybe remove this method, not all items can be "used" like crafting materials, define push use seperately for each subclass

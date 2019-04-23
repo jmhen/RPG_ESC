@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 
 public class Map : NetworkBehaviour
 {
+    public GameObject NodeStations;
     public static Map instance;
     public List<Node> nodeList;
     static Node currentNode;
@@ -15,15 +16,32 @@ public class Map : NetworkBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-
-
-
-    void Start()
-    {
         SetCurrentNode(1);
+        StartCoroutine(LoadNodeLocations());
     }
+    IEnumerator LoadNodeLocations()
+    {
+
+        NodeDetector[] detectors = NodeStations.GetComponentsInChildren<NodeDetector>();
+        foreach (Node node in nodeList)
+        {
+            foreach (NodeDetector detector in detectors)
+            {
+                if (detector.NodeID ==  node.itemID)
+                {
+                    node.SetCentreLocation(detector.gameObject.transform.position);
+                    Debug.Log("Node " + node.itemID + " center location: " + node.GetCentreLocation());
+                    break;
+                }
+                yield return null;
+            }
+            
+        }
+
+    }
+
+
+
 
 
 

@@ -73,7 +73,7 @@ public class NodeReclaimUI : MonoBehaviour
 
         nodeNumberText.text = node.itemID.ToString();
         string materialInfo = "";
-        for (int i = 0; i < node.spawnableMaterials.Count; i++)
+        for (int i = 0; i < node.spawnableMaterials.Length; i++)
         {
             string materialname = node.spawnableMaterials[i].name + "\n\n";
             materialInfo += materialname;
@@ -84,7 +84,7 @@ public class NodeReclaimUI : MonoBehaviour
 
 
         //TODO: need to set the materials for all nodes!
-        for (int i = 0; i < node.requiredMaterials.Count; i++)
+        for (int i = 0; i < node.requiredMaterials.Length; i++)
         {
             if (node.requiredMaterials[i] != null)
             {
