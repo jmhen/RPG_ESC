@@ -27,7 +27,8 @@ public class MainMenu : MonoBehaviour
     {
         //TODO: save user stats
         //DB.setAll();
-        DB.setHp();
+        Debug.Log("starting to quit");
+        Debug.Log(DB.setAll());
         Application.Quit();
         Debug.Log("App is quit.");
         Debug.Log(StaticStats.Hp);
