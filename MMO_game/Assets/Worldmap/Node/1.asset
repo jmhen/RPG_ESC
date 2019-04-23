@@ -16,12 +16,7 @@ MonoBehaviour:
   isReclaimed: 1
   healthLevel: 60
   location: {x: 268.081, y: -3.327111, z: 218.8522}
-  requiredMaterials:
-  - {fileID: 11400000, guid: 27365e239ad20d843a52181645776bb9, type: 2}
-  - {fileID: 11400000, guid: 0428ddedff734c34cbdd407a5f1b6ee3, type: 2}
-  - {fileID: 11400000, guid: 8712d90a924df2244be3c0ce13a72cca, type: 2}
-  - {fileID: 11400000, guid: 4b21c8610ba190543a492ce4b114c673, type: 2}
-  - {fileID: 11400000, guid: 4749098b015c00040a71cd0486c7f6db, type: 2}
+  requiredMaterials: []
   spawnableMaterials:
   - {fileID: 11400000, guid: 948ca637523fe9144b1a76051761f4f5, type: 2}
   - {fileID: 11400000, guid: c7361e736679a3f4e9547deb3d2048fd, type: 2}

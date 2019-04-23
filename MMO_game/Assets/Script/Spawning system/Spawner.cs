@@ -43,7 +43,7 @@ public class Spawner : NetworkBehaviour
         {
             Area area = areas[i];
             int spawnNumber = area.GetSpawnNumber(); 
-            Debug.Log("Spawning "+spawnNumber+ " items in Area "+ area.AreaID);
+            //Debug.Log("Spawning "+spawnNumber+ " items in Area "+ area.AreaID);
             for(int j = 0; j < spawnNumber; j++)
             {
                 GameObject sp = Instantiate(area.itemToSpawn, area.GenerateRandomSpawnPoints(),false);

@@ -35,7 +35,7 @@ public class Area : ScriptableObject
         float spawnPointX = distance * Mathf.Cos(angle);
         float spawnPointZ = distance * Mathf.Sin(angle);
         newPoint.transform.position = centre + new Vector3(spawnPointX, 10, spawnPointZ);
-        Debug.Log("new spawn location: " +newPoint.transform.position);
+        //Debug.Log("new spawn location: " +newPoint.transform.position);
         return newPoint.transform;
 
     }
@@ -43,7 +43,7 @@ public class Area : ScriptableObject
     public int GetSpawnNumber()
     {
         int spawnNumber = SpawnAlgorithm.spawnNumber(areaCurrentItems, areaLastItems, areaItemCap, spawnCap);
-        Debug.Log("SpawnNumber Calculated:  " + spawnNumber);
+        Debug.Log("Area "+AreaID+" SpawnNumber Calculated:  " + spawnNumber);
         return spawnNumber;
     }
     public void UpdateArea()

@@ -17,6 +17,7 @@ public class Map : NetworkBehaviour
     {
         instance = this;
         SetCurrentNode(1);
+        nodeList[1].SetProgress(100);
         StartCoroutine(LoadNodeLocations());
     }
     IEnumerator LoadNodeLocations()

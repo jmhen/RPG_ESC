@@ -16,5 +16,5 @@ MonoBehaviour:
   itemToSpawn: {fileID: 206888183773289924, guid: 8fe17a1b1698c4369bd90911bf8ae865,
     type: 3}
   radius: 10
-  areaItemCap: 5
-  spawnCap: 2
+  areaItemCap: 10
+  spawnCap: 3

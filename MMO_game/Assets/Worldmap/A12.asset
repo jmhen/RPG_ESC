@@ -17,4 +17,4 @@ MonoBehaviour:
     type: 3}
   radius: 20
   areaItemCap: 10
-  spawnCap: 2
+  spawnCap: 3

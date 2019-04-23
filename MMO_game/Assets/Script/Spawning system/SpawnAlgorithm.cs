@@ -25,7 +25,7 @@ public static class SpawnAlgorithm
 
         if (areaFinalItems > areaItemCap)
         {
-            return areaFinalItems - areaItemCap;
+            return areaItemCap - areaCurrentItems;
         }
 
         else if (areaFinalItems < areaItemCap && areaFinalItems - areaCurrentItems > spawnCap)
