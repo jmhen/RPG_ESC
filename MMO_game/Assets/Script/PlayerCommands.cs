@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+
 public class PlayerCommands : NetworkBehaviour
 {
+    ChatSystem chat = new ChatSystem();
     // Start is called before the first frame update
     void Start()
     {
         if (!isLocalPlayer)
         {
+            CmdSendChat();
             return;
         }
         if (!isServer)
         {
             Debug.Log("sending name");
             CmdSendName();
+            RpcUpdateChat();
         }
-
     }
 
 
@@ -86,7 +89,19 @@ public class PlayerCommands : NetworkBehaviour
     void RpcUpdateNode(int nodeID, float progress) {
         Map.instance.nodeList[nodeID].SetProgress(progress);
     }
+    
+    [Command]
+    void CmdSendChat()
+    {
+        chat.sendMessageToChat(chat.username + ": " + chat.chatBox.text, Message.MessageType.playerMessage);
+    }
 
+    [ClientRpc]
+    void RpcUpdateChat()
+    {
+        chat.sendMessageToChat(chat.username + ": " + chat.chatBox.text, Message.MessageType.playerMessage);
+    }
 
 
 }
+

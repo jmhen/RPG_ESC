@@ -236,7 +236,6 @@ PlayerSettings:
   tvOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 0
   iOSRequireARKit: 0
-  iOSAutomaticallyDetectAndAddCapabilities: 1
   appleEnableProMotion: 0
   clonedFromGUID: c0afd0d1d80e3634a9dac47e8a0426ea
   templatePackageId: com.unity.template.3d@1.0.4
@@ -719,10 +718,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 8952bfba-cf3d-42ac-9315-3820acd5011d
+  cloudProjectId: 74d7eab0-a5d2-4749-b9eb-c52ac224735f
   framebufferDepthMemorylessMode: 0
-  projectName: MMO_game
-  organizationId: jmhen2017
+  projectName: MMO_game (7)
+  organizationId: derrickmyo
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
