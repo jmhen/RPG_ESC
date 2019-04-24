@@ -10,42 +10,9 @@ using UnityEngine.Networking;
 [Serializable]
 public static class DB
 {
-    private static string address = "http://10.12.54.189/";
+    private static string serverAddress = "http://10.12.54.189/";
     private static string header = "game.php?key=None";
-    private static string JsonString;
 
-    public static string setAll()
-    {
-        string uri = address + header + "&query=setAll" + 
-        "&hp=" + StaticStats.Hp + 
-            "&mp=" + StaticStats.Mp + 
-        "&scene=" + StaticStats.Scene + 
-            "&X=" + StaticStats.Position.x +
-        "&Y=" + StaticStats.Position.y +
-            "&Z=" + StaticStats.Position.z + 
-        "&loginName=" + "Player";
-
-        return HttpGet(uri);
-    }
-
-    public static string getAll()
-    {
-        string uri = address + header + "&query=getAll" +
-            "&loginName=" + StaticStats.playerName;
-        return HttpGet(uri);
-    }
-
-    public static string SetHp()
-    {
-        string uri = "http://10.12.54.189/game.php?key=None&query=setHp&hp=34567&loginName=Player";
-        return HttpGet(uri);
-    }
-
-    public static string GetHp()
-    {
-        string uri = "http://10.12.54.189/game.php?key=None&query=getHp&loginName=Player";
-        return HttpGet(uri);
-    }
 
     public static string HttpGet(string uri)
     {
@@ -72,5 +39,54 @@ public static class DB
             return "";
         }
     }
+
+    private static string currentStatus()
+    {
+        string status = "&hp=" + StaticStats.Hp +
+            "&mp=" + StaticStats.Mp +
+        "&scene=" + StaticStats.Scene +
+            "&X=" + StaticStats.Position.x +
+        "&Y=" + StaticStats.Position.y +
+            "&Z=" + StaticStats.Position.z +
+        "&loginName=" + "Player";
+        return status;
+    }
+
+    private static string queryIs(string query)
+    {
+        string uri = serverAddress + header + "&query=" + query + currentStatus();
+
+        return uri;
+    }
+
+    public static string setAll()
+    {
+        string uri = queryIs("setAll");
+
+        return HttpGet(uri);
+    }
+
+    public static string getAll()
+    {
+        string uri = queryIs("getAll");
+
+        return HttpGet(uri);
+    }
+
+    public static string SetHp()
+    {
+        string uri = queryIs("setHp");
+
+        return HttpGet(uri);
+    }
+
+    public static string GetHp()
+    {
+        string uri = queryIs("getHp");
+
+        return HttpGet(uri);
+    }
+
+    
 }
 
